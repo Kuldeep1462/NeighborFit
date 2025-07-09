@@ -1,5 +1,7 @@
 # NeighborFit+ 🏘️
 
+[![Live Demo](https://img.shields.io/badge/Live%20Site-NeighborFit12.vercel.app-blue?style=for-the-badge)](https://neighborfit12.vercel.app/)
+
 A full-stack web application that helps users find the best neighborhoods in India based on their lifestyle preferences, powered by Google's Gemini AI.
 
 ## 🚀 Features
@@ -21,47 +23,55 @@ A full-stack web application that helps users find the best neighborhoods in Ind
 
 ## 📁 Project Structure
 
-\`\`\`
-neighborfit/
-├── frontend/                      # React Frontend
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/            # Reusable Components
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── pages/                 # Route Pages
-│   │   │   ├── Home.jsx
-│   │   │   ├── Form.jsx
-│   │   │   ├── Results.jsx
-│   │   │   ├── About.jsx
-│   │   │   └── Contact.jsx
-│   │   ├── styles/                # CSS files (single-class methodology)
-│   │   │   ├── navbar.css
-│   │   │   ├── footer.css
-│   │   │   ├── home.css
-│   │   │   ├── form.css
-│   │   │   ├── results.css
-│   │   │   ├── about.css
-│   │   │   └── contact.css
-│   │   ├── App.jsx                # Main app with routing
-│   │   └── index.js               # React DOM render
-│   ├── .env                       # Frontend env variables
-│   └── package.json               # React dependencies
-├── backend/                       # Node.js Express Backend
-│   ├── routes/
-│   │   └── recommend.js           # POST /api/recommend
-│   ├── controllers/
-│   │   └── recommendController.js # Logic for generating recommendations
-│   ├── utils/
-│   │   └── aiPromptBuilder.js     # Builds AI prompt dynamically
-│   ├── index.js                   # Server entry point
-│   ├── .env                       # Backend environment (PORT, API_KEY)
-│   └── package.json               # Backend dependencies
-├── .gitignore
-├── README.md
-└── package.json                   # Root package with scripts
-\`\`\`
+```
+NeighborFit/
+├── 📁 frontend/                   # React Frontend Application
+│   ├── 📁 public/
+│   │   └── 📄 index.html
+│   ├── 📁 src/
+│   │   ├── 📁 components/         # Reusable UI Components
+│   │   │   ├── 📄 Navbar.jsx      # Navigation component
+│   │   │   └── 📄 Footer.jsx      # Footer component
+│   │   ├── 📁 pages/              # Application Pages
+│   │   │   ├── 📄 Home.jsx        # Landing page
+│   │   │   ├── 📄 Form.jsx        # User preference form
+│   │   │   ├── 📄 Results.jsx     # AI recommendations display
+│   │   │   ├── 📄 About.jsx       # About page
+│   │   │   └── 📄 Contact.jsx     # Contact form page
+│   │   ├── 📁 styles/             # CSS Styles (Single-Class Methodology)
+│   │   │   ├── 📄 navbar.css      # Navigation styles
+│   │   │   ├── 📄 footer.css      # Footer styles
+│   │   │   ├── 📄 home.css        # Home page styles
+│   │   │   ├── 📄 form.css        # Form page styles
+│   │   │   ├── 📄 results.css     # Results page styles
+│   │   │   ├── 📄 about.css       # About page styles
+│   │   │   └── 📄 contact.css     # Contact page styles
+│   │   ├── 📄 App.jsx             # Main React application
+│   │   └── 📄 index.js            # React entry point
+│   ├── 📄 .env                    # Frontend environment variables
+│   └── 📄 package.json            # Frontend dependencies
+├── 📁 backend/                    # Node.js Express Backend API
+│   ├── 📁 config/
+│   │   └── 📄 database.js         # MongoDB connection configuration
+│   ├── 📁 controllers/
+│   │   └── 📄 recommendController.js # AI recommendation logic
+│   ├── 📁 models/
+│   │   └── 📄 Neighborhood.js     # MongoDB neighborhood model
+│   ├── 📁 routes/
+│   │   ├── 📄 recommend.js        # Recommendation API endpoints
+│   │   └── 📄 contact.js          # Contact form API endpoints
+│   ├── 📁 scripts/
+│   │   └── 📄 seedDatabase.js     # Database seeding script
+│   ├── 📁 utils/
+│   │   └── 📄 aiPromptBuilder.js  # AI prompt generation utilities
+│   ├── 📄 index.js                # Express server entry point
+│   ├── 📄 .env                    # Backend environment variables
+│   └── 📄 package.json            # Backend dependencies
+├── 📄 .gitignore                  # Git ignore rules
+├── 📄 README.md                   # Project documentation
+├── 📄 package.json                # Root package configuration
+└── 📄 package-lock.json           # Dependency lock file
+```
 
 ## 🏙️ Covered Neighborhoods
 
