@@ -1,0 +1,261 @@
+.result-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    height: fit-content;
+  }
+  
+  .result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .rank-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .score-badge {
+    background: #10b981;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .neighborhood-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0;
+  }
+  
+  .neighborhood-location {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .neighborhood-description {
+    color: #374151;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 12px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+  }
+  
+  /* Features Section */
+  .features-section {
+    background: #fef3c7;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #eab308;
+  }
+  
+  .features-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #92400e;
+    margin: 0 0 0.75rem 0;
+  }
+  
+  .features-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .feature-tag {
+    background: #fbbf24;
+    color: #92400e;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Amenities Section */
+  .amenities-section {
+    background: #ecfdf5;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #10b981;
+  }
+  
+  .amenities-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #065f46;
+    margin: 0 0 0.75rem 0;
+  }
+  
+  .amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .amenity-item {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Nearby Places Section */
+  .nearby-section {
+    background: #f0f9ff;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #0ea5e9;
+  }
+  
+  .nearby-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin: 0 0 0.75rem 0;
+  }
+  
+  .nearby-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nearby-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: #e0f2fe;
+    border-radius: 8px;
+  }
+  
+  .nearby-name {
+    color: #0c4a6e;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  .nearby-distance {
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .reasoning-section {
+    background: #eff6ff;
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+  }
+  
+  .reasoning-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .reasoning-text {
+    color: #1e40af;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .reasons-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #1e40af;
+  }
+  
+  .reason-item {
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    .result-card {
+      padding: 1rem;
+    }
+  
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  
+    .neighborhood-name {
+      font-size: 1.25rem;
+    }
+  
+    .nearby-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+  
