@@ -85,6 +85,8 @@ const Form = () => {
     console.log("Submitting form data:", formData)
 
     try {
+      // For local development, use:
+      // axios.post('http://localhost:5000/api/recommend', formData)
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/recommend`, formData)
 
       console.log("API Response:", response.data)
