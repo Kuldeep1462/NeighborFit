@@ -144,7 +144,12 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
     const reasons = []
 
     // 1. Lifestyle Preferences Matching (40% weight)
-    const lifestyleMatches = userData.lifestyle.filter((pref) => {
+    const lifestyleArray = Array.isArray(userData.lifestyle)
+      ? userData.lifestyle
+      : userData.lifestyle
+        ? [userData.lifestyle]
+        : [];
+    const lifestyleMatches = lifestyleArray.filter((pref) => {
       const prefLower = pref.toLowerCase().replace(/[^a-z]/g, "")
       return neighborhood.tags.some((tag) => {
         const tagLower = tag.toLowerCase().replace(/[^a-z]/g, "")
@@ -156,11 +161,11 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
       })
     })
 
-    const lifestyleScore = (lifestyleMatches.length / Math.max(userData.lifestyle.length, 1)) * 40
+    const lifestyleScore = (lifestyleMatches.length / Math.max(lifestyleArray.length, 1)) * 40
     score += lifestyleScore
 
     if (lifestyleMatches.length > 0) {
-      reasons.push(`Matches ${lifestyleMatches.length}/${userData.lifestyle.length} lifestyle preferences`)
+      reasons.push(`Matches ${lifestyleMatches.length}/${lifestyleArray.length} lifestyle preferences`)
     }
 
     // 2. Budget Compatibility (25% weight)
