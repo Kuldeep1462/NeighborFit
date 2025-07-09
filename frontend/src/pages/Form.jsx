@@ -85,7 +85,8 @@ const Form = () => {
     console.log("Submitting form data:", formData)
 
     try {
-      const backendUrl = process.env.REACT_APP_API_URL || "https://neighborfit-wiom.onrender.com"|| "http://localhost:5000";
+      const rawBackendUrl = process.env.REACT_APP_API_URL || "https://neighborfit-wiom.onrender.com";
+      const backendUrl = rawBackendUrl.replace(/\/$/, ""); // remove trailing slash if present
       const response = await axios.post(`${backendUrl}/api/recommend`, formData)
 
       console.log("API Response:", response.data)
