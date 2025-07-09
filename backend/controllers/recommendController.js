@@ -300,6 +300,7 @@ const calculateAgeScore = (ageGroup, tags) => {
 
 const calculateFamilyScore = (familySize, tags) => {
   tags = Array.isArray(tags) ? tags : [];
+  familySize = typeof familySize === "string" ? familySize : "";
   if (familySize === "Single") {
     return tags.includes("lively") ? 0.8 : 0.5
   } else if (familySize.includes("Family")) {
@@ -318,6 +319,7 @@ const getAgeReason = (ageGroup) => {
 }
 
 const getFamilyReason = (familySize) => {
+  familySize = typeof familySize === "string" ? familySize : "";
   if (familySize.includes("Family")) return "Family-friendly amenities"
   if (familySize === "Single") return "Great for singles"
   if (familySize === "Couple") return "Perfect for couples"
