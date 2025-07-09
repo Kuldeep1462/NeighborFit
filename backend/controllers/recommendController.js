@@ -150,6 +150,7 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
         ? [userData.lifestyle]
         : [];
     const tags = Array.isArray(neighborhood.tags) ? neighborhood.tags : [];
+    console.log('Checking tags:', tags);
     const lifestyleMatches = lifestyleArray.filter((pref) => {
       const prefLower = pref.toLowerCase().replace(/[^a-z]/g, "")
       return tags.some((tag) => {
@@ -207,8 +208,10 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
     }
 
     // Work location proximity bonus
-    if (userData.workLocation && neighborhood.keyFeatures) {
-      const workMatch = neighborhood.keyFeatures.some(
+    const keyFeatures = Array.isArray(neighborhood.keyFeatures) ? neighborhood.keyFeatures : [];
+    if (userData.workLocation && keyFeatures.length > 0) {
+      console.log('Checking keyFeatures:', keyFeatures);
+      const workMatch = keyFeatures.some(
         (feature) =>
           feature.toLowerCase().includes("it") ||
           feature.toLowerCase().includes("tech") ||
