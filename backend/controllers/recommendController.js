@@ -301,14 +301,15 @@ const calculateAgeScore = (ageGroup, tags) => {
 const calculateFamilyScore = (familySize, tags) => {
   tags = Array.isArray(tags) ? tags : [];
   familySize = typeof familySize === "string" ? familySize : "";
+  console.log('calculateFamilyScore - familySize:', familySize, 'tags:', tags);
   if (familySize === "Single") {
-    return tags.includes("lively") ? 0.8 : 0.5
+    return Array.isArray(tags) && tags.includes("lively") ? 0.8 : 0.5;
   } else if (familySize.includes("Family")) {
-    return tags.includes("family-friendly") ? 1.0 : 0.3
+    return Array.isArray(tags) && tags.includes("family-friendly") ? 1.0 : 0.3;
   } else if (familySize === "Couple") {
-    return tags.includes("lively") || tags.includes("cultural") ? 0.7 : 0.5
+    return Array.isArray(tags) && (tags.includes("lively") || tags.includes("cultural")) ? 0.7 : 0.5;
   }
-  return 0.5
+  return 0.5;
 }
 
 const getAgeReason = (ageGroup) => {
