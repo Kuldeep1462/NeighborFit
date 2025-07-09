@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 })
 
 // Routes
-app.use("/api", recommendRoutes)
+app.use("/api/recommend", recommendRoutes)
 app.use('/api/contact', contactRoute)
 
 // Health check endpoint
