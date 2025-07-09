@@ -6,7 +6,7 @@ USER PROFILE:
 - Gender: ${userData.gender}
 - Family: ${userData.familySize}
 - Budget: ${userData.budget}
-- Lifestyle: ${userData.lifestyle.join(", ")}
+- Lifestyle: ${(Array.isArray(userData.lifestyle) ? userData.lifestyle : [userData.lifestyle]).join(", ")}
 - Preferred Cities: ${userData.preferredCities?.join(", ") || "Any city"}
 - Work Location: ${userData.workLocation || "Not specified"}
 - Priorities: ${userData.priorities?.join(", ") || "General"}
