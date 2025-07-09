@@ -153,12 +153,12 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
     console.log('Checking tags:', tags);
     const lifestyleMatches = lifestyleArray.filter((pref) => {
       const prefLower = pref.toLowerCase().replace(/[^a-z]/g, "")
-      return tags.some((tag) => {
+      return Array.isArray(tags) && tags.some((tag) => {
         const tagLower = tag.toLowerCase().replace(/[^a-z]/g, "")
         return (
           tagLower.includes(prefLower) ||
           prefLower.includes(tagLower) ||
-          getLifestyleMapping(prefLower).includes(tagLower)
+          (Array.isArray(getLifestyleMapping(prefLower)) && getLifestyleMapping(prefLower).includes(tagLower))
         )
       })
     })
@@ -209,13 +209,15 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
 
     // Work location proximity bonus
     const keyFeatures = Array.isArray(neighborhood.keyFeatures) ? neighborhood.keyFeatures : [];
-    if (userData.workLocation && keyFeatures.length > 0) {
+    if (userData.workLocation && Array.isArray(keyFeatures) && keyFeatures.length > 0) {
       console.log('Checking keyFeatures:', keyFeatures);
       const workMatch = keyFeatures.some(
         (feature) =>
-          feature.toLowerCase().includes("it") ||
-          feature.toLowerCase().includes("tech") ||
-          feature.toLowerCase().includes("corporate"),
+          typeof feature === "string" && (
+            feature.toLowerCase().includes("it") ||
+            feature.toLowerCase().includes("tech") ||
+            feature.toLowerCase().includes("corporate")
+          )
       )
       if (workMatch) {
         score += 5
@@ -294,7 +296,7 @@ const calculateAgeScore = (ageGroup, tags) => {
     "55+": ["calm", "cultural", "family-friendly"],
   }
   const agePrefs = preferences[ageGroup] || []
-  const matches = tags.filter((tag) => agePrefs.includes(tag))
+  const matches = Array.isArray(tags) ? tags.filter((tag) => agePrefs.includes(tag)) : [];
   return matches.length / Math.max(agePrefs.length, 1)
 }
 
