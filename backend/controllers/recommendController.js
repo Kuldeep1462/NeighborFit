@@ -149,9 +149,10 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
       : userData.lifestyle
         ? [userData.lifestyle]
         : [];
+    const tags = Array.isArray(neighborhood.tags) ? neighborhood.tags : [];
     const lifestyleMatches = lifestyleArray.filter((pref) => {
       const prefLower = pref.toLowerCase().replace(/[^a-z]/g, "")
-      return neighborhood.tags.some((tag) => {
+      return tags.some((tag) => {
         const tagLower = tag.toLowerCase().replace(/[^a-z]/g, "")
         return (
           tagLower.includes(prefLower) ||
@@ -179,7 +180,7 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
     }
 
     // 3. Age Group Preferences (15% weight)
-    const ageScore = calculateAgeScore(userData.age, neighborhood.tags)
+    const ageScore = calculateAgeScore(userData.age, tags)
     score += ageScore * 15
 
     if (ageScore > 0.5) {
@@ -187,7 +188,7 @@ const getEnhancedRuleBasedRecommendations = (userData, neighborhoods) => {
     }
 
     // 4. Family Size Compatibility (10% weight)
-    const familyScore = calculateFamilyScore(userData.familySize, neighborhood.tags)
+    const familyScore = calculateFamilyScore(userData.familySize, tags)
     score += familyScore * 10
 
     if (familyScore > 0.5) {
@@ -281,6 +282,7 @@ const calculateBudgetScore = (budgetRange, rentValue) => {
 }
 
 const calculateAgeScore = (ageGroup, tags) => {
+  tags = Array.isArray(tags) ? tags : [];
   const preferences = {
     "18-25": ["lively", "nightlife", "tech-hub"],
     "26-35": ["tech-hub", "lively", "shopping"],
@@ -288,13 +290,13 @@ const calculateAgeScore = (ageGroup, tags) => {
     "46-55": ["family-friendly", "calm", "cultural"],
     "55+": ["calm", "cultural", "family-friendly"],
   }
-
   const agePrefs = preferences[ageGroup] || []
   const matches = tags.filter((tag) => agePrefs.includes(tag))
   return matches.length / Math.max(agePrefs.length, 1)
 }
 
 const calculateFamilyScore = (familySize, tags) => {
+  tags = Array.isArray(tags) ? tags : [];
   if (familySize === "Single") {
     return tags.includes("lively") ? 0.8 : 0.5
   } else if (familySize.includes("Family")) {
