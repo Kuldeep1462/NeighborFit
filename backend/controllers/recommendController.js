@@ -69,7 +69,7 @@ const getRecommendations = async (req, res) => {
         console.log("🤖 Attempting AI recommendation...")
         const prompt = aiPromptBuilder.buildRecommendationPrompt(userData, neighborhoods)
 
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+        const model = genAI.getGenerativeModel({ model: "models/gemini-pro" })
         const result = await model.generateContent(prompt)
         const response = await result.response
         const aiResponse = response.text()
